@@ -11,6 +11,13 @@ public class Main {
         return lastName.matches(regex);
     }
 
+    public static boolean isValidEmail(String email) {
+        // Regular Expression for email validation
+        String regex = "^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\\.[a-z]{2,}(\\.[a-z]{2,})?$";
+        return email.matches(regex);
+    }
+
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -31,5 +38,16 @@ public class Main {
             System.out.println("Invalid Last Name. It must start with a capital letter and have at least 3 characters.");
 
         }
+
+        System.out.print("Enter your Email: ");
+        String email = scanner.nextLine();
+        if (isValidEmail(email)) {
+            System.out.println("Valid Email.");
+        } else {
+            System.out.println("Invalid Email. Ensure it has the correct format (e.g., abc.xyz@bl.co.in).");
+        }
+
+        scanner.close();
+
     }
 }
