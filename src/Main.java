@@ -21,6 +21,16 @@ public class Main {
         return mobileNumber.matches(regex);
     }
 
+    public static boolean isValidPassword(String password) {
+        String regex = "^.{8,}$";
+
+        if (!password.matches(regex)) {
+            System.out.println("Password must have at least 8 characters.");
+            return false;
+        }
+
+        return true;
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -57,6 +67,15 @@ public class Main {
             System.out.println("Valid Mobile Number.");
         } else {
             System.out.println("Invalid Mobile Number. Ensure it follows the format: 91 9919819801.");
+        }
+
+        System.out.print("Enter your Password: ");
+        String password = scanner.nextLine();
+
+        if (isValidPassword(password)) {
+            System.out.println("Password is valid.");
+        } else {
+            System.out.println("Invalid Password. Ensure all rules are met.");
         }
 
         scanner.close();
