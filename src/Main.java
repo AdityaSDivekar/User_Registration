@@ -22,11 +22,13 @@ public class Main {
     }
 
     public static boolean isValidPassword(String password) {
-        String regex = "^(?=.*[A-Z]).{8,}$";
+        String regex = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
 
         if (!password.matches(regex)) {
             System.out.println("Password must have at least 8 characters.");
             System.out.println("- One uppercase letter");
+            System.out.println("- One numeric digit");
+
             return false;
         }
 
